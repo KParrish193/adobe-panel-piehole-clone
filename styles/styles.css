@@ -12,16 +12,16 @@
 
  :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: #fff;
+  --link-color: #fff;
+  --link-hover-color: #E9542F;
+  --background-color: #000;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --text-color: #000;
+  --text-color: #fff;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
+  --heading-font-family: shrikhand;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
@@ -38,7 +38,7 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 80px;
 
 }
 
@@ -135,11 +135,47 @@ a:any-link {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--link-hover-color);
+  font-weight: 900;
+  transition: all 0.2s ease;
 }
 
 /* buttons */
+
+@keyframes diagonal-up {
+  0% {
+    transform: translateX(1) translateY(1);
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  40% {
+    transform: translateX(8px) translateY(-18px);
+  }
+
+  41% {
+    transform: translateX(-25px) translateY(20px);
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(1) translateY(1);
+  }
+}
+
+
+
 a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-block;
@@ -158,11 +194,26 @@ a.button:any-link, button {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
+  position: relative;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:any-link svg, button svg {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+a.button:hover, a.button:focus, button:hover, button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
+}
+
+a.button:hover svg, a.button:focus svg, button:hover svg, button:focus svg {
+  animation: diagonal-up 0.7s cubic-bezier(0.82, 0.14, 0.23, 0.885);
 }
 
 button:disabled, button:disabled:hover {
@@ -174,6 +225,12 @@ a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color)
+}
+
+a.button.secondary:hover, button.secondary:hover {
+  background-color: unset;
+  border: 2px solid var(--link-hover-color);
+  color: var(--link-hover-color)
 }
 
 main input {
@@ -248,4 +305,9 @@ main .section {
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+
+
+svg {
+  fill: #e8532f;
 }
