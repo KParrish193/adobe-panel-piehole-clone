@@ -306,3 +306,8 @@ main .section {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
+
+svg {
+  fill: #e8532f;
+}
