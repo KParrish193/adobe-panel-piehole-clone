@@ -143,3 +143,17 @@ export default async function decorate(block) {
     block.append(navWrapper);
   }
 }
+
+
+// JS for hide/show on scroll
+var prevScrollPos = window.scrollY;
+console.log("header", document.getElementsByClassName("nav-wrapper")[0]);
+window.onscroll = function () {
+  var currentScrollPos = Math.max(window.scrollY, 0);
+  if (currentScrollPos - prevScrollPos <= 0) {
+    document.getElementsByClassName("nav-wrapper")[0].style.top = "0";
+  } else {
+    document.getElementsByClassName("nav-wrapper")[0].style.top = "-80px";
+  }
+  prevScrollPos = currentScrollPos;
+};

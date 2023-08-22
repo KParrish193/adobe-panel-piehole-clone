@@ -4,6 +4,11 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid #3D3D3D;
+
+  /* used for scroll transition */
+  transition: top 0.5s cubic-bezier(0.82, 0.14, 0.23, 0.885);
+  top: 0;
 }
 
 header nav {
@@ -55,6 +60,7 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  font-family: shrikhand;
 }
 
 /* hamburger */

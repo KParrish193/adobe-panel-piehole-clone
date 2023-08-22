@@ -1,6 +1,6 @@
 footer {
   padding: 2rem;
-  background-color: var(--overlay-background-color);
+  background-color: var(--background-color);
   font-size: var(--body-font-size-s);
 }
 
@@ -11,4 +11,19 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
+  text-align: center;
+}
+
+footer .footer p:not(:first-of-type) {
+  font-size: calc(var(--body-font-size-s) - 3px);
+}
+
+@media(max-width: 600px){
+  footer .footer p {
+    text-align: left;
+  }
+
+  footer .footer p:first-of-type {
+    margin-bottom: 10px;
+  }
 }
