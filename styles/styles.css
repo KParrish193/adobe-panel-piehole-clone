@@ -38,7 +38,7 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 80px;
+  --nav-height: 95px;
 
 }
 
@@ -142,7 +142,6 @@ a:hover {
 }
 
 /* buttons */
-
 @keyframes diagonal-up {
   0% {
     transform: translateX(1) translateY(1);
@@ -313,19 +312,12 @@ main .section {
   }
 }
 
-@media (max-width: 900px){
-  .section.basic-content-container h2 {
-    margin: 32px 0 -64px;
-  }
+.default-content-wrapper h2 {
+  color: var(--link-hover-color);
 }
 
 
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
-}
-
-
-.default-content-wrapper h2 {
-  color: var(--link-hover-color);
 }
