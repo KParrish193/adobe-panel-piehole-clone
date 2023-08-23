@@ -174,10 +174,9 @@ a:hover {
   }
 }
 
-
-
 a.button:any-link, button {
-  font-family: var(--body-font-family);
+  font-family: shrikhand;
+  letter-spacing: 0.05rem;
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
@@ -189,7 +188,6 @@ a.button:any-link, button {
   cursor: pointer;
   color: var(--background-color);
   background-color: var(--link-color);
-  margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -231,6 +229,18 @@ a.button.secondary:hover, button.secondary:hover {
   background-color: unset;
   border: 2px solid var(--link-hover-color);
   color: var(--link-hover-color)
+}
+
+.cta-buttons > div > div {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@media(max-width: 900px){
+  .cta-buttons > div > div {
+    flex-direction: column;
+  }
 }
 
 main input {
@@ -283,6 +293,7 @@ main img {
 .icon svg {
   height: 100%;
   width: 100%;
+  fill: #e8532f;
 }
 
 main .section {
@@ -302,12 +313,19 @@ main .section {
   }
 }
 
+@media (max-width: 900px){
+  .section.basic-content-container h2 {
+    margin: 32px 0 -64px;
+  }
+}
+
+
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
 
-svg {
-  fill: #e8532f;
+.default-content-wrapper h2 {
+  color: var(--link-hover-color);
 }
