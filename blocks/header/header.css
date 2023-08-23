@@ -47,6 +47,7 @@ header nav[aria-expanded="true"] {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    border-bottom: none;
 }
 
 /* logo positioning when menu expanded */
