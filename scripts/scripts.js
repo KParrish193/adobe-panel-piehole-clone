@@ -113,6 +113,8 @@ export function addFavIcon(href) {
     document.getElementsByTagName('head')[0].appendChild(link);
   }
 }
+
+// start Tabs scripts
 const tabElementMap = {};
 
 function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
@@ -158,6 +160,7 @@ async function autoBlockTabComponent(main, targetIndex, tabSections) {
   tabsBlock.appendChild(tabContentsWrapper);
 
   tabSections.forEach((tabSection) => {
+    // remove base section styles
     tabSection.classList.remove('section');
     tabSection.classList.add('contents');
     // remove display: none

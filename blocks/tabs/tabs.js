@@ -1,10 +1,11 @@
-import { loadBlocks } from "../../scripts/lib-franklin.js";
+import { loadBlocks, decorateIcons } from "../../scripts/lib-franklin.js";
 import { decorateMain } from "../../scripts/scripts.js";
 
 async function generateTabMainBlock(html) {
   const main = document.createElement("main");
   main.innerHTML = html;
   decorateMain(main);
+  decorateIcons(main);
   await loadBlocks(main);
   return main;
 }
@@ -51,31 +52,55 @@ function generateHiddenInput(tabSectionIndex, presentTabContents, block) {
 
 function generateTabNav(tabSectionIndex, presentTabContents) {
   const ul = document.createElement("ul");
+
   ul.setAttribute("class", "tabs-control");
 
   presentTabContents.forEach((tabContent, index) => {
-    const { tabTitle } = tabContent.dataset;
+    const { tabTitle, tabIcon } = tabContent.dataset;
+    console.log("tabIcon", tabIcon)
+    
     const li = document.createElement("li");
-    li.setAttribute("class", "tab");
+    li.setAttribute("class", `tab ${index}`);
 
     const label = document.createElement("label");
     label.setAttribute("for", `tab-${tabSectionIndex}-${index}`);
 
-    const h2 = document.createElement("h2");
-
+    const h3 = document.createElement("h3");
     const a = document.createElement("a");
+    const svgWrapper = document.createElement("div");
+    const ring = document.createElement("div");
+    const clickWrapper = document.createElement("div");
+    
+    ring.setAttribute("class", "ring");
+    svgWrapper.setAttribute("class", "svg-wrapper");
+    clickWrapper.setAttribute("class", "click-wrapper");
+
     a.innerHTML = tabTitle;
-    h2.append(a);
-    label.append(h2);
+    h3.append(a);
+    ring.append(svgWrapper);
+    clickWrapper.append(ring);
+    clickWrapper.append(h3);
+    label.append(clickWrapper);
     li.append(label);
 
-    li.addEventListener("click", () => {
+    li.addEventListener("click", (e) => {
       // eslint-disable-next-line no-restricted-globals
       history.replaceState(
         undefined,
         undefined,
         `#tabs--${tabSectionIndex}--${tabTitle}`
       );
+
+    //   check for any li with active class, then remove
+      var elems = document.getElementsByClassName("active-tab");
+      if (elems !== null) {
+        Array.prototype.forEach.call(elems, function(e) {
+            e.classList.remove("active-tab");
+        });
+
+      }
+    //   add to current li
+      li.classList.add("active-tab");
     });
 
     ul.append(li);
