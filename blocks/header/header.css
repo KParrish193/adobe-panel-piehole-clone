@@ -4,7 +4,6 @@ header .nav-wrapper {
   width: 100%;
   z-index: 999;
   position: fixed;
-  border-bottom: 1px solid #3D3D3D;
   height: var(--nav-height);
 
   /* used for scroll transition */
@@ -28,6 +27,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: shrikhand;
+  border-bottom: 1px solid #3D3D3D;
 }
 
 @media (min-width: 600px) {
