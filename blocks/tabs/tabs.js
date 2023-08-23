@@ -56,7 +56,7 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
   ul.setAttribute("class", "tabs-control");
 
   presentTabContents.forEach((tabContent, index) => {
-    const { tabTitle, tabIcon } = tabContent.dataset;
+    const { tabTitle } = tabContent.dataset;
     
     const li = document.createElement("li");
     li.setAttribute("class", `tab ${index}`);

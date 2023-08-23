@@ -27,19 +27,6 @@
     }
 }
 
-.mobile-ux:before {
-    background-image: url( '../icons/arrow-light.svg' );
-    content: "";
-    width: 30px;
-    height: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    display: inline-block;
-    border: solid 2px fuchsia;
-}
-
 .tab {
 	padding: 16px 0;
     position: relative;
@@ -55,7 +42,22 @@
 
 .tab.active-tab .svg-wrapper {
     background-color: #F1957E;
-    border: solid 2px var(--link-hover-color);
+    border: solid 11px var(--link-hover-color);
+
+}
+
+.tab.active-tab .svg-wrapper::after {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-image: url("../../icons/pizza-slice.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: " ";
 }
 
 .click-wrapper {
@@ -69,21 +71,35 @@
 .ring {
     border: solid 3px #fff;
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 
 .svg-wrapper {
     background-color: #B8B8B8;
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: solid 2px #858585;
+    border: solid 11px #858585;
+}
+
+.svg-wrapper::after {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-image: url("../../icons/pizza-slice-black.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: " ";
 }
 
 h3 {
