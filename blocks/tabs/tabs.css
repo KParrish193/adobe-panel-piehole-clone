@@ -12,27 +12,62 @@
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
+    overflow-y: visible;
     list-style: none;
     padding: 0;
     margin: 0 0 80px;
     height: auto;
+    border-bottom: solid 3px #3D3D3D;
+    position: relative;
+}
+
+@media (max-width: 900px) {
+    .tabs-control {
+        border-bottom: none;
+    }
+}
+
+.mobile-ux:before {
+    background-image: url( '../icons/arrow-light.svg' );
+    content: "";
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: inline-block;
+    border: solid 2px fuchsia;
 }
 
 .tab {
-	margin: 10px 0;
+	padding: 16px 0;
     position: relative;
     list-style: none;
+    z-index: 2;
+    margin-right: 24px;
+}
+
+.tab:hover a, 
+.tab.tab.active-tab a {
+    color: var(--link-hover-color);
+} 
+
+.tab.active-tab .svg-wrapper {
+    background-color: #F1957E;
+    border: solid 2px var(--link-hover-color);
 }
 
 .click-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 16px;
+    margin: 0 auto;
 }
 
 .ring {
-    border: solid 2px #fff;
+    border: solid 3px #fff;
     position: relative;
     width: 150px;
     height: 150px;
@@ -40,14 +75,15 @@
 }
 
 .svg-wrapper {
-    background-color: #777;
-    width: 125px;
-    height: 125px;
+    background-color: #B8B8B8;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: solid 2px #858585;
 }
 
 h3 {
@@ -74,10 +110,9 @@ h3 {
 	font-size: 12px;
 }
 
-.tab > label > h2 > a:hover{
+.tab > label > h3 > a:hover{
 	text-decoration: none;
 }
-
 
 
 .contents-wrapper .contents {
@@ -86,28 +121,28 @@ h3 {
 }
 
 /* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
-.tabs-control .tab:hover > label > h3 > a,
-.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(1) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(2) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(3) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(4) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(5) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(6) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(7) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(8) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(9) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(10) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(11) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(12) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(13) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(14) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(15) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(16) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(17) > label > h2 > a,
-.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(18) > label > h2 > a {
+/* .tabs-control .tab:hover > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(1) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(2) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(3) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(4) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(5) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(6) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(7) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(8) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(9) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(10) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(5):checked ~ .tabs-control .tab:nth-of-type(11) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(1):checked ~ .tabs-control .tab:nth-of-type(12) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(13) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(14) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(15) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(16) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(17) > label > h3 > a,
+.tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(18) > label > h3 > a {
 	color: var(--link-hover-color);
     transition: all 0.2s ease-out;
-}
+} */
 
 .tabs [type="radio"]:nth-of-type(1):checked ~ .contents-wrapper .contents:nth-of-type(1),
 .tabs [type="radio"]:nth-of-type(2):checked ~ .contents-wrapper .contents:nth-of-type(2),

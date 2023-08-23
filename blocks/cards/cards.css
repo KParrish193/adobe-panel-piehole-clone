@@ -9,11 +9,29 @@
 
 .cards > ul > li {
   border: 1px solid var(--highlight-background-color);
-  background-color: var(--background-color)
+  background-color: var(--background-color);
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .cards .cards-card-body {
   margin: 16px;
+
+}
+
+.cards .cards-card-body strong {
+  font-family: shrikhand;
+  font-size: var(--heading-font-size-m);
+    color: #fff;
+}
+
+
+.cards .cards-card-body p:not(:first-of-type) {
+  line-height: normal;
+  color: #DCDFE5;
+  margin: 0 0 8px 0;
+  font-family: roboto;
+  font-size: 1.25rem;
 }
 
 .cards .cards-card-image {

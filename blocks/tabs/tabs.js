@@ -57,7 +57,6 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
 
   presentTabContents.forEach((tabContent, index) => {
     const { tabTitle, tabIcon } = tabContent.dataset;
-    console.log("tabIcon", tabIcon)
     
     const li = document.createElement("li");
     li.setAttribute("class", `tab ${index}`);
@@ -70,7 +69,7 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
     const svgWrapper = document.createElement("div");
     const ring = document.createElement("div");
     const clickWrapper = document.createElement("div");
-    
+
     ring.setAttribute("class", "ring");
     svgWrapper.setAttribute("class", "svg-wrapper");
     clickWrapper.setAttribute("class", "click-wrapper");
@@ -91,7 +90,7 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
         `#tabs--${tabSectionIndex}--${tabTitle}`
       );
 
-    //   check for any li with active class, then remove
+    //   check for any li with active-tab class, then remove
       var elems = document.getElementsByClassName("active-tab");
       if (elems !== null) {
         Array.prototype.forEach.call(elems, function(e) {
