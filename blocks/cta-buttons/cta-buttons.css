@@ -1,0 +1,13 @@
+.button-container {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+}
+
+.button-container:first-of-type {
+  margin-right: 24px;
+}
+
+.button-container a {
+  margin: 0;
+}

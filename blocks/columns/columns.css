@@ -9,11 +9,39 @@
 
 .columns > div > div {
   order: 1;
+
+}
+
+.columns > div > div h2 {
+  color: var(--link-hover-color);
+  font-size: var(--heading-font-size-xxl);
+  margin-top: 0;
+}
+
+.columns > div > div p {
+  margin: 0 0 8px 0;
+  color: #DCDFE5;
+  font-size: 1.25rem;
+  width: 75%;
+  
+}
+
+.columns > div > div strong {
+  box-sizing: border-box;
+  display: block;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: normal;
+  padding-left: 58px;
+  margin-top: -4px;
 }
 
 .columns > div > .columns-img-col {
   order: 0;
 }
+
+
+
 
 .columns > div > .columns-img-col img {
   display: block;
@@ -29,5 +57,34 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  } 
+}
+
+@media (max-width: 900px) {
+  .columns > div > :not(.columns-img-col) {
+    margin-top: 48px;
+  }
+
+  .columns > div > div h2 {
+    margin-bottom: 16px;
+  }
+
+  .columns > div > div h3 {
+    margin: 0;
   }
 }
+
+/* custom for directions page */
+#location-address, #phone-phone {
+  display: flex;
+  align-items: flex-end;
+}
+
+#location-address span, #phone-phone span {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin-right: 16px;
+}
+
+
