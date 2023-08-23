@@ -8,11 +8,12 @@ function closeOnEscape(e) {
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections);
-      navSectionExpanded.focus();
-    } else if (!isDesktop.matches) {
+    if(navSectionExpanded){
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections);
+    //   navSectionExpanded.focus();
+    // } else if (!isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleMenu(nav, navSections);
       nav.querySelector('button').focus();
@@ -55,27 +56,32 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  document.body.style.overflowY = expanded ? "" : "hidden";
+  // document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+    toggleAllNavSections(
+      navSections,
+      expanded ? "false" : "true"
+    );
+  // toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
-  if (isDesktop.matches) {
-    navDrops.forEach((drop) => {
-      if (!drop.hasAttribute('tabindex')) {
-        drop.setAttribute('role', 'button');
-        drop.setAttribute('tabindex', 0);
-        drop.addEventListener('focus', focusNavSection);
-      }
-    });
-  } else {
+  // if (isDesktop.matches) {
+  //   navDrops.forEach((drop) => {
+  //     if (!drop.hasAttribute('tabindex')) {
+  //       drop.setAttribute('role', 'button');
+  //       drop.setAttribute('tabindex', 0);
+  //       drop.addEventListener('focus', focusNavSection);
+  //     }
+  //   });
+  // } else {
     navDrops.forEach((drop) => {
       drop.removeAttribute('role');
       drop.removeAttribute('tabindex');
       drop.removeEventListener('focus', focusNavSection);
     });
-  }
+  // }
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     // collapse menu on escape press
@@ -153,7 +159,7 @@ window.onscroll = function () {
   if (currentScrollPos - prevScrollPos <= 0) {
     document.getElementsByClassName("nav-wrapper")[0].style.top = "0";
   } else {
-    document.getElementsByClassName("nav-wrapper")[0].style.top = "-80px";
+    document.getElementsByClassName("nav-wrapper")[0].style.top = "-95px";
   }
   prevScrollPos = currentScrollPos;
 };
