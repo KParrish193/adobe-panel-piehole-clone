@@ -76,11 +76,11 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   //     }
   //   });
   // } else {
-    navDrops.forEach((drop) => {
-      drop.removeAttribute('role');
-      drop.removeAttribute('tabindex');
-      drop.removeEventListener('focus', focusNavSection);
-    });
+    // navDrops.forEach((drop) => {
+    //   drop.removeAttribute('role');
+    //   drop.removeAttribute('tabindex');
+    //   drop.removeEventListener('focus', focusNavSection);
+    // });
   // }
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
@@ -139,8 +139,8 @@ export default async function decorate(block) {
     nav.prepend(hamburger);
     nav.setAttribute('aria-expanded', 'false');
     // prevent mobile nav behavior on window resize
-    toggleMenu(nav, navSections, isDesktop.matches);
-    isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+    // toggleMenu(nav, navSections, isDesktop.matches);
+    // isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
     decorateIcons(nav);
     const navWrapper = document.createElement('div');

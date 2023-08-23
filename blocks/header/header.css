@@ -4,9 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 999;
   position: fixed;
-  border-bottom: 1px solid #3D3D3D;
   height: var(--nav-height);
-  /* border: solid 1px yellow; */
 
   /* used for scroll transition */
   transition: top 0.5s cubic-bezier(0.82, 0.14, 0.23, 0.885);
@@ -29,6 +27,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: shrikhand;
+  border-bottom: 1px solid #3D3D3D;
 }
 
 @media (min-width: 600px) {
@@ -48,6 +47,7 @@ header nav[aria-expanded="true"] {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    border-bottom: none;
 }
 
 /* logo positioning when menu expanded */
@@ -106,7 +106,7 @@ header nav[aria-expanded="true"] .nav-tools {
   header nav[aria-expanded="true"] .nav-hamburger,
   header nav[aria-expanded="true"] .nav-sections,
   header nav[aria-expanded="true"] .nav-tools {
-    border-left: solid 1px #959FB1;
+    border-left: solid 1px #3D3D3D;
   }
 }
 
